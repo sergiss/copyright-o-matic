@@ -36,8 +36,10 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JEditorPane;
@@ -108,6 +110,9 @@ public class View extends JFrame {
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 		setTitle("Copyright O'matic");
+		try {
+			setIconImage(ImageIO.read(View.class.getResourceAsStream("/copyright.png")));
+		} catch (IOException e) {}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 690, 690);
 		contentPane = new JPanel();
